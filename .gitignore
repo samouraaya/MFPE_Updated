@@ -1,0 +1,59 @@
+/.web-server-pid
+/app/config/parameters.yml
+/app/config/parameters-inm.yml
+/nbproject/*
+/build/
+/phpunit.xml
+/var/*
+/uploads
+/web/uploads/csv-excel-socio-economic
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
+/web/bundles/
+/web/tmp/
+/tmp/
+!/web/uploads/
+.idea/*
+/nbproject/*
+.vscode/*
+composer.lock
+
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+
+###> PhpStorm ###
+/.idea
+###< PhpStorm ###
+
+###> docker ###
+/docker/mysql/data/*
+!/docker/mysql/data/.gitkeep
+###< docker ###
+
+.DS_Store
+/nbproject/private/

@@ -1,0 +1,22 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: mfpe_staging
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_encryption: ssl
+    mailer_host: smtp.gmail.com
+    mailer_user: noreplay.gbo@gmail.com
+    mailer_password: 05022019gbo@@
+    secret: ThisTokenIsNotSoSecretChangeIt
+    cors_allow_origin: '*'
+    api_name: 'Mfpe API'
+    api_description: 'Mfpe API'
+    jwt_private_key_path: '%kernel.root_dir%/../jwt/private.pem'
+    jwt_public_key_path: '%kernel.root_dir%/../jwt/public.pem'
+    jwt_key_pass_phrase: 'Mfpe#2019'
+    jwt_token_ttl: 84000
+    base_url: 10.1.1.50

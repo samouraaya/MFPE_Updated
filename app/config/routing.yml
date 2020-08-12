@@ -1,0 +1,50 @@
+mfpe_home:
+    resource: "@MfpeHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_editique:
+    resource: "@MfpeEditiqueBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_data_socio_economic:
+    resource: "@MfpeDataSocioEconomicBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_collect_data:
+    resource: "@MfpeCollectDataBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_notification:
+    resource: "@MfpeNotificationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_centre_formation:
+    resource: "@MfpeCentreFormationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_unite_regionale:
+    resource: "@MfpeUniteRegionaleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+mfpe_attestation:
+    resource: "@MfpeAttestationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mfpe_config:
+    resource: "@MfpeConfigBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+#app.swagger_ui:
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
+
+mfpe_referenciel:
+    resource: "@MfpeReferencielBundle/Resources/config/routing.yml"
+    prefix:   /api/referenciel
+
+
+
+

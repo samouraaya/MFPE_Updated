@@ -1,0 +1,13 @@
+mfpe_unite_regionale_homepage:
+    path:     /
+    defaults: { _controller: MfpeUniteRegionaleBundle:Default:index }
+
+unite_regionale_controller:
+    type: rest
+    resource: "@MfpeUniteRegionaleBundle/Controller/UniteRegionaleController.php"
+    prefix:   /api/uniteRegionale
+
+identity_regionale_controller:
+    type: rest
+    resource: "@MfpeUniteRegionaleBundle/Controller/IdentityRegionController.php"
+    prefix:   /api/identityRegion

@@ -1,0 +1,81 @@
+services:
+    #    prototype_config.example:
+    #        class: Mfpe\ConfigBundle\Example
+    #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    #    app.services.listing:
+    #        class: Mfpe\Services\ListServicesonKernelRequest
+    #        public: true
+    #        arguments: ["@doctrine.orm.entity_manager"]
+    app_user_service:
+        class: Mfpe\ConfigBundle\Services\UserService
+        arguments: [ '@doctrine.orm.entity_manager' ]
+
+    app_patch_service:
+        class: Mfpe\ConfigBundle\Services\EntityMerger
+        arguments: [ '@annotations.reader']
+
+    app.doctrine.pre_persist_listener:
+        class: Mfpe\ConfigBundle\EventListener\PrePersistListener
+        public: true
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
+
+    app.doctrine.hash_password_listener:
+        class: Mfpe\ConfigBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_listener , event: prePersist }
+            - { name: doctrine.event_listener , event: preUpdate }
+
+    #    app.event.authentication_success_listener:
+    #        class: Mfpe\ConfigBundle\EventListener\AuthenticationSuccessListener
+    #        autowire: true
+    #        tags:
+    #            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+    app_permission_service:
+        class: Mfpe\ConfigBundle\Services\PermissionService
+        arguments: [ '@router','@doctrine.orm.entity_manager','@security.token_storage','@request_stack' ]
+
+    app_front_interface_service:
+        class: Mfpe\ConfigBundle\Services\FrontInterfacesService
+        arguments: [ '@router','@doctrine.orm.entity_manager','@security.token_storage','@request_stack' ]
+
+    Mfpe_config.event_listener.api_excApiExceptionSubscribereption_subscriber:
+        class: Mfpe\ConfigBundle\EventListener\ApiExceptionSubscriber
+        tags:
+            - { name: kernel.event_subscriber }
+    listener.requestresponse:
+        class: Mfpe\ConfigBundle\EventListener\RequestListener
+        arguments: ['@security.token_storage','@doctrine.orm.entity_manager','@service_container']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    mfpe_configbundle_mailer_sendmailer:
+        class: Mfpe\ConfigBundle\Services\Mailer
+        arguments: ["@mailer", "@templating"]
+    mfpe_api.event.jwt_invalid_listener:
+        class: Mfpe\ConfigBundle\EventListener\AuthenticationFailureListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_invalid, method: onJWTInvalid }
+    mfpe_api.event.jwt_expired_listener:
+        class: Mfpe\ConfigBundle\EventListener\JWTExpiredListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_expired, method: onJWTExpired }
+    mfpe_user_doc:
+        class: Mfpe\ConfigBundle\Services\DocService
+        arguments: ["@doctrine.orm.entity_manager","@templating","%file_folder%","@service_container"]
+    #    mfpe_configbundle.event_listener.access_permissions_demande__listener:
+    mfpe_configbundle.event_listener.access_permissions_demande__listener:
+        class: Mfpe\ConfigBundle\EventListener\AccessPermissionsDemandeListener
+        arguments: ["@security.token_storage","@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+#    mfpe_api.permissions.access_permissions__listener:
+    mfpe_configbundle.event_listener.access_permissions__listener:
+        class: Mfpe\ConfigBundle\EventListener\AccessPermissionsListener
+        autowire: true
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    mfpe_configbundle.services.convert_date:
+        class: Mfpe\ConfigBundle\Services\ConvertDate

@@ -1,0 +1,8 @@
+services:
+#    Mfpe_referenciel.example:
+#        class: Mfpe\ReferencielBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+ Mfpe\ReferencielBundle\Repository\ReferencielRepository:
+        factory: ['@doctrine.orm.default_entity_manager',getRepository]
+        arguments:
+            - Mfpe\ReferencielBundle\Entity\Referenciel

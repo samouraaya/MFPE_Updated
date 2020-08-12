@@ -1,0 +1,11 @@
+mfpe_editique_homepage:
+    path:     /
+    defaults: { _controller: MfpeEditiqueBundle:Default:index }
+editique_controller:
+    type: rest
+    resource: "@MfpeEditiqueBundle/Controller/EdiqueController.php"
+    prefix:   /api/editique
+editique_emploi_controller:
+    type: rest
+    resource: "@MfpeEditiqueBundle/Controller/EdiqueEmploiController.php"
+    prefix:   /api/editique-emploi

@@ -1,0 +1,23 @@
+mfpe_collect_data_homepage:
+    path:     /
+    defaults: { _controller: MfpeCollectDataBundle:Default:index }
+mfpe_collect_data_controller:
+    type: rest
+    resource: "@MfpeCollectDataBundle/Controller/CollectDataController.php"
+    prefix:   /api/collect_data
+mfpe_project_data_controller:
+    type: rest
+    resource: "@MfpeCollectDataBundle/Controller/ProjectDataController.php"
+    prefix:   /api/project_data
+mfpe_aneti_data_controller:
+    type: rest
+    resource: "@MfpeCollectDataBundle/Controller/AnetiDataController.php"
+    prefix:   /api/aneti
+mfpe_moa_data_controller:
+    type: rest
+    resource: "@MfpeCollectDataBundle/Controller/MoeDataController.php"
+    prefix:   /api/moe
+mfpe_project_data_csv_controller:
+    type: rest
+    resource: "@MfpeCollectDataBundle/Controller/UploadCsvController.php"
+    prefix:   /api/csv/

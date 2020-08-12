@@ -1,0 +1,4 @@
+notification_controller:
+    type: rest
+    resource: "@MfpeNotificationBundle/Controller/NotificationController.php"
+    prefix:   /api/notification

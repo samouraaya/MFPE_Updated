@@ -1,0 +1,7 @@
+mfpe_home_homepage:
+    path:     /
+    defaults: { _controller: MfpeHomeBundle:Default:index }
+mfpe_home_controller:
+    type: rest
+    resource: "@MfpeHomeBundle/Controller/HomeController.php"
+    prefix:   /api/home

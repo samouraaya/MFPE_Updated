@@ -1,0 +1,68 @@
+pipeline {
+
+    agent{
+        docker {
+            image 'php:7.3.4-cli-stretch'
+            args '-p 4040:3000 -u root'
+        }
+    }
+
+    environment {
+        CI = 'false'
+        server_pass = credentials('serveur_web_50_password')
+    }
+    stages {
+        stage('Fetch Git'){
+            steps {
+                script {
+                        
+                       try {  
+                    
+                            withCredentials([string(credentialsId: 'serveur_web_50_password', variable: 'serveur_web_50_password')]) {
+                                def remote = [:]
+                                remote.name = 'devhost'
+                                remote.host = '10.1.1.50'
+                                remote.user = 'root'
+                                remote.password = serveur_web_50_password
+                                remote.allowAnyHosts = true
+    
+    
+                                stage('Git pull') {
+                                   sshCommand remote: remote, command: " cd ../var/www/html/BackendMFPE && git stash " 
+                                    sshCommand remote: remote, command: " cd ../var/www/html/BackendMFPE && git pull http://jenkins:Cynapsys2018@10.1.1.70/MFPE/BackendMFPE.git"
+						          //  sshPut remote: remote, from: '/var/lib/jenkins/workspace/BackendMFPE', into: '/var/www/html', override: true
+
+                                }
+                                stage('Update dependencies') {
+                                    //sshCommand remote: remote, command: " composer update" 
+                                }
+                                stage('Update database') {
+                                    sshCommand remote: remote, command: " cd ../var/www/html/BackendMFPE && php bin/console doctrine:schema:update --force" 
+                                }
+                                stage('Clear cache') {
+                                    sshCommand remote: remote, command: " cd ../var/www/html/BackendMFPE && php bin/console cache:clear --env prod && php bin/console cache:clear" 
+                                    sshCommand remote: remote, command: "chmod -R 777 ../var/www/html/BackendMFPE"  
+                                }
+
+                                stage('Send Notifications'){
+                                    mail bcc: 'MFPE Backend dev deployment succeeded', 
+                                    body: "The MFPE Backend dev deployment has succeeded. \n Link : http://10.1.1.50:40/api/doc/ \n External Link: 41.226.165.26:8215 \n Build: http://10.1.1.104:8080/blue/organizations/jenkins/BackendMFPE/detail/BackendMFPE/${env.BUILD_ID}  \n ", 
+                                    cc: 'houssem.khaldi@gfi-tunisie.com, safouane.fatin@gfi-tunisie.com, wiem.hdiji@gfi-tunisie.com, lamine.mansouri@gfi-tunisie.com, fatma.hbal@gfi-tunisie.com, brahim.haouari@gfi-tunisie.com, abdeladel.majdeb@gfi-tunisie.com',
+                                    subject: 'MFPE Backend deployment succeeded', 
+                                    to: 'mohamed.kdidi@gfi-tunisie.com'
+                                }
+    
+                            }
+                        }
+                        catch (err) {
+                                mail bcc: 'MFPE BackEnd dev build failed', 
+                               body: "The MFPE Backend dev deployment has failed ${err}. \n Build: http://10.1.1.104:8080/blue/organizations/jenkins/BackendMFPE/detail/BackendMFPE/${env.BUILD_ID}  \n ", 
+                               cc: 'houssem.khaldi@gfi-tunisie.com, safouane.fatin@gfi-tunisie.com, wiem.hdiji@gfi-tunisie.com, lamine.mansouri@gfi-tunisie.com',  
+                               subject: 'MFPE BackEnd build failed', 
+                              to: 'mohamed.kdidi@gfi-tunisie.com'
+                       }
+                    }
+                } 
+            }
+        }
+    }

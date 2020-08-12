@@ -1,0 +1,11 @@
+#!/bin/sh
+
+host=$1
+port=$2
+
+echo "Attempting to connect to $host:$port"
+until nc -z $host $port; do
+    printf "."
+    sleep 5
+done
+echo "Connection to $host:$port is established"

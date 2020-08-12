@@ -1,0 +1,32 @@
+prototype_config_homepage:
+    path:     /
+    defaults: { _controller: MfpeConfigBundle:Default:index }
+
+login_check:
+    path: /api/user/auth/login_check
+    methods:  [POST]
+
+prototype_user_controler:
+    type: rest
+    resource: "@MfpeConfigBundle/Controller/Auth/LoginController.php"
+    prefix:   /api/user/auth
+
+prototype_config_roles:
+    type: rest
+    resource: "@MfpeConfigBundle/Controller/Config/RoleController.php"
+    prefix:   /api/user/roles
+
+prototype_config_permissions:
+    type: rest
+    resource: "@MfpeConfigBundle/Controller/Config/PermissionController.php"
+    prefix:   /api/user/permissions
+
+user_controller:
+    type: rest
+    resource: "@MfpeConfigBundle/Controller/UserController.php"
+    prefix:   /api/users
+command_controller:
+    type: rest
+    resource: "@MfpeConfigBundle/Controller/CommandController.php"
+    prefix:   /api
+

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table class="m_-5199420182349167779table-row" width="450" bgcolor="#FFFFFF"
+           style="table-layout:fixed;background-color:#ffffff; text-align: center; margin: 0 auto;" cellspacing="0"
+           cellpadding="0" border="0">
+        <tbody>
+        <tr>
+            <td class="m_-5199420182349167779table-row-td"
+                style="font-family:Arial,sans-serif;line-height:19px;color:#444444;font-size:13px;font-weight:normal;padding-left:36px;padding-right:36px"
+                valign="top" align="left">
+                <table class="m_-5199420182349167779table-col" align="left" width="378" cellspacing="0" cellpadding="0"
+                       border="0" style="table-layout:fixed">
+                    <tbody>
+                    <tr>
+                        <td class="m_-5199420182349167779table-col-td" width="378"
+                            style="font-family:Arial,sans-serif;line-height:19px;color:#444444;font-size:13px;font-weight:normal;width:378px"
+                            valign="top" align="left">
+                            <table class="m_-5199420182349167779header-row" width="378" cellspacing="0" cellpadding="0"
+                                   border="0" style="table-layout:fixed">
+                                <tbody>
+                                <tr>
+                                    <td class="m_-5199420182349167779header-row-td" width="378"
+                                        style="font-family:Arial,sans-serif;font-weight:normal;line-height:19px;color:#478fca;margin:0px;font-size:18px;padding-bottom:10px;padding-top:15px"
+                                        valign="top" align="left">
+                                        Refus PV de la direction régionale
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div style="font-family:Arial,sans-serif;line-height:20px;color:#444444;font-size:15px">
+                                Bonjour Mr/Mme Agent Centre, <br>
+                                <p> Nous vous informons que le PV correspondant à la demande suivante : </p><br>
+                                <div style="color:#ffffff;text-decoration:none;margin:0px;vertical-align:baseline;border:4px solid #6fb3e0;padding:4px 9px;font-size:15px;line-height:10px;background-color:#6fb3e0">
+                                    <p style="font-weight: bold;">Num demande : {{ demande.code }}</p>
+                                    <p style="font-weight: bold;">CIN ou Passeport : {{ demande.user.numCin }}</p>
+                                    <p style="font-weight: bold;">NOM Prénom
+                                        : {{ demande.user.nomFr }} {{ demande.user.prenomFr }}</p>
+                                    <p style="font-weight: bold;">Domaine : {{ demande.domaine.intituleFr }}</p>
+                                    <p style="font-weight: bold;">Secteur : {{ demande.secteur.intituleFr }}</p>
+                                    <p style="font-weight: bold;">Specialité
+                                        : {{ demande.specialite.specialite.intituleAr }}</p>
+                                </div>
+                                <div style="font-size:15px">
+                                    {% if demande.motif.intituleFr is defined %}
+                                        {% if demande.motif.intituleFr|default %}
+                                            <p>{{ demande.motif.intituleFr }} </p>
+                                        {% endif %}
+                                    {% endif %}
+                                    <p>Prière de revérifier le PV uploadé..</p>
+                                    <p>Merci pour votre collaboration</p>
+                                </div>
+
+                                <p style="font-weight: bold; color: #c7254e"> © Ministère de la Formation
+                                    Professionnelle et de l'Emploi <br></p>
+
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

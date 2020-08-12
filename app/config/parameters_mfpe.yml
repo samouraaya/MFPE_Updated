@@ -1,0 +1,23 @@
+parameters:
+   object_mail_inscription_citoyen: 'Inscription certification formation'
+   object_mail_ATFP: 'Affection demande à la '
+   object_mail_demande_payement: "Demande de payement d'examain en "
+   object_mail_refus: 'Refus Demande: manque de spécialité dans votre domaine'
+   object_mail_stop_process: "Refus Demande: Vous avez atteint le nombre maximum de passage d'examen"
+   object_mail_transfert_demande: "Transfert Demande d'une unité régional vers une autre unité régional"
+   object_mail_centre_attente_upload: 'Demande en attente d’upload qui a dépassé le délai prédéfini'
+   object_update_password_citoyen: 'Modification mot de passe citoyen'
+   object_attestation_ko: 'Resultat examen attestation'
+   url_activate_account: 'http://10.1.1.50:41/fiche-inscription'
+   url_authentication: 'https://www.google.com'
+   file_directory: '%kernel.root_dir%/../web/uploads/assets'
+   pv_directory: '%kernel.root_dir%/../web/uploads/pv'
+   file_folder: 'uploads/'
+   host: '10.1.1.50:40'
+   dir_cache: "%kernel.root_dir%/../var/cache"
+   dir_logs: "%kernel.root_dir%/../var/logs"
+   dir_sessions: "%kernel.root_dir%/../var/sessions"
+   csv_socio_economic_directory: '%kernel.root_dir%/../web/uploads/csv-excel-socio-economic'
+   csv_project_directory: '%kernel.root_dir%/../web/uploads/csv-excel-project'
+   txt_aneti_directory: '%kernel.root_dir%/../web/uploads/txt_aneti/'
+   ftp_path_aneti: 'C:/Users/wiem hdiji/Documents/'

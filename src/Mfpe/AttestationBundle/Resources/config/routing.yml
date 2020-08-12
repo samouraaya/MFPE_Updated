@@ -1,0 +1,15 @@
+mfpe_attestation_homepage:
+    path:     /
+    defaults: { _controller: MfpeAttestationBundle:Default:index }
+demande_controller:
+    type: rest
+    resource: "@MfpeAttestationBundle/Controller/DemandeController.php"
+    prefix:   /api/demande
+document_controller:
+    type: rest
+    resource: "@MfpeAttestationBundle/Controller/DocumentController.php"
+    prefix:   /api/paper
+delais_controller:
+    type: rest
+    resource: "@MfpeAttestationBundle/Controller/DelaisController.php"
+    prefix:   /api/delais

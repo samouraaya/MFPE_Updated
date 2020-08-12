@@ -1,0 +1,323 @@
+
+{% extends 'base2.html.twig' %}
+{% block body %}
+    <img src="{{ asset('/images/convocation.png') }}"/>
+{% endblock %}
+
+{#{% extends 'base2.html.twig' %}#}
+{#{% block body %}#}
+{#    <table>#}
+{#        <tr>#}
+{#            <td>#}
+{#                <img src="{{ asset('/images/Logo-MFPE.png') }}"/>#}
+{#            </td>#}
+
+{#            <td colspan="3">#}
+{#                {% if lang == 'fr' %}#}
+{#                    <h2>Ministère de la Formation Professionnelle et de#}
+{#                        l'Emploi</h2>#}
+{#                    <h2>#}
+{#                        {{ "now"|date("d/m/Y") }} </h2>#}
+{#                {% else %}#}
+{#                    <h2>وزارة التكوين المهني والتشغيل</h2>#}
+
+{#                    <h2>#}
+{#                        {{ "now"|date("d/m/Y") }} </h2>#}
+{#                {% endif %}#}
+
+{#            </td>#}
+
+
+{#            <td>#}
+
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>#}
+
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>#}
+
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+
+{#    {% if lang == 'fr' %}#}
+
+{#        <h3>Convocation </h3>#}
+
+
+{#    {% else %}#}
+{#        <h3>الدعوة </h3>#}
+
+{#    {% endif %}#}
+
+{#    {% if demande %}#}
+{#        {% if lang == 'fr' %}#}
+
+{#            <table class="info">#}
+{#                {% if demande.user.nomFr %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Nom :</td>#}
+{#                        <td> {{ demande.user.nomFr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.prenomFr %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Prénom :</td>#}
+{#                        <td> {{ demande.user.prenomFr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.nationalite %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Nationalite :</td>#}
+{#                        <td> {{ demande.user.nationalite.intituleFr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if  demande.user.numCin %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Carte d'identité :</td>#}
+{#                        <td> {{ demande.user.numCin }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateDelivranceCin %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Date de délivrance Cin :</td>#}
+{#                        <td> {{ demande.user.dateDelivranceCin |date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.numPassport %}#}
+
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Passport :</td>#}
+{#                        <td> {{ demande.user.numPassport }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateNaissance %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Date naissance :</td>#}
+{#                        <td> {{ demande.user.dateNaissance |date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.numPassport %}#}
+
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Numéro de passport :</td>#}
+{#                        <td> {{ demande.user.numPassport }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateDelivrancePassport %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Date de délivrance passeport :</td>#}
+{#                        <td> {{ demande.user.dateDelivrancePassport|date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.numCarteSejour %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Numéro de carte de sejour :</td>#}
+{#                        <td> {{ demande.user.numCarteSejour }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateValiditeSejour %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Date de validité séjour :</td>#}
+{#                        <td> {{ demande.user.dateValiditeSejour|date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.gouvernorat %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Gouvernorat :</td>#}
+{#                        <td> {{ demande.user.gouvernorat.intituleFr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.delegation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Délégation :</td>#}
+{#                        <td> {{ demande.user.delegation.intituleFr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.lieuNaissance %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Lieu de naissance :</td>#}
+{#                        <td> {{ demande.user.lieuNaissance }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+
+{#                {% if demande.specialite %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Spécialite :</td>#}
+{#                        <td> {{ demande.specialite.nomSpecialite }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if dateExamen %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Date Examen :</td>#}
+{#                        <td> {{ dateExamen.dateExam|date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if dateExamen.material %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Observations  :</td>#}
+{#                        <td> {{ dateExamen.material}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Centre de formation :</td>#}
+{#                        <td> {{ demande.centreFormation.nom}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Adresse centre de formation :</td>#}
+{#                        <td> {{ demande.centreFormation.adresse}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Téléphone du centre :</td>#}
+{#                        <td> {{ demande.centreFormation.tel}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.uniteRegionale %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">Direction régionale :</td>#}
+{#                        <td> {{ demande.uniteRegionale.gouvernorat.intituleFr}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#            </table>#}
+
+{#        {% else %}#}
+{#            <table class="info">#}
+{#                <tr><td></td><td></td></tr>#}
+{#                {% if demande.user.nomFr %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> اللقب :</td>#}
+{#                        <td> {{ demande.user.nomAr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.prenomFr %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> الاسم :</td>#}
+{#                        <td> {{ demande.user.prenomAr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.nationalite%}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> الجنسية :</td>#}
+{#                        <td> {{ demande.user.nationalite.intituleAr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if  demande.user.numCin %}#}
+
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> بطاقة التعريف الوطنية : </td>#}
+{#                        <td> {{ demande.user.numCin }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateDelivranceCin %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> تاريخ إصدار بطاقة التعريف : </td>#}
+{#                        <td> {{ demande.user.dateDelivranceCin |date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateNaissance %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> تاريخ الولادة :</td>#}
+{#                        <td>{{ demande.user.dateNaissance |date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.numPassport %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">رقم جواز السفر :</td>#}
+{#                        <td> {{ demande.user.numPassport }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateDelivrancePassport %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">تاريخ إصدار جواز السفر :</td>#}
+{#                        <td> {{ demande.user.dateDelivrancePassport|date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.numCarteSejour %}#}
+
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">رقم بطاقة الإقامة :</td>#}
+{#                        <td> {{ demande.user.numCarteSejour }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.dateValiditeSejour %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> تاريخ صلاحية الإقامة :</td>#}
+{#                        <td> {{ demande.user.dateValiditeSejour }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.gouvernorat %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> الولاية :</td>#}
+{#                        <td> {{ demande.user.gouvernorat.intituleAr }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.delegation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> المعتمدية :</td>#}
+{#                        <td> {{ demande.user.delegation.intituleAr}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.user.lieuNaissance %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> مكان الولادة :</td>#}
+{#                        <td> {{ demande.user.lieuNaissance }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.specialite %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;"> الاختصاص :</td>#}
+{#                        <td> {{ demande.specialite.nomSpecialite }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+
+{#                {% if dateExamen %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">تاريخ إجراء الأمتحان :</td>#}
+{#                        <td> {{ dateExamen.dateExam|date("m/d/Y") }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if dateExamen.material %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">الملاحظات  :</td>#}
+{#                        <td> {{ dateExamen.material}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">مركز التدريب :</td>#}
+{#                        <td> {{ demande.centreFormation.nom}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">عنوان مركز التدريب :</td>#}
+{#                        <td> {{ demande.centreFormation.adresse}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.centreFormation %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">هاتف مركز التدريب :</td>#}
+{#                        <td> {{ demande.centreFormation.tel}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+{#                {% if demande.uniteRegionale %}#}
+{#                    <tr>#}
+{#                        <td style="font-weight: bold;">الإدارة الإقليمية :</td>#}
+{#                        <td> {{ demande.uniteRegionale.gouvernorat.intituleAr}}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
+
+{#            </table>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+
+{#{% endblock %}#}

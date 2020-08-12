@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      args:
+        VERSION: $NGINX_VERSION
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      target: dev
+    volumes:
+      - ./web:/app/web
+    depends_on:
+      - php-fpm
+    ports:
+      - 8000:80
+  php-fpm:
+    build:
+      args:
+        VERSION: $PHP_VERSION
+      context: .
+      dockerfile: ./docker/php-fpm/Dockerfile
+      target: dev
+    volumes:
+      - .:/app
+    command: sh -c 'composer install --no-interaction --optimize-autoloader && php-fpm'
+    depends_on:
+      - mysql
+  mysql:
+    build:
+      args:
+        VERSION: $MYSQL_VERSION
+      context: ./docker/mysql
+    environment:
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/custom.cnf
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+    restart: always
+    depends_on:
+      - mysql 
+    volumes:
+      - "./docker/phpmyadmin/sessions:/sessions"    
+

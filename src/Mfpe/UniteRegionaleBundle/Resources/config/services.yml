@@ -1,0 +1,4 @@
+services:
+#    mfpe_unite_regionale.example:
+#        class: Mfpe\UniteRegionaleBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

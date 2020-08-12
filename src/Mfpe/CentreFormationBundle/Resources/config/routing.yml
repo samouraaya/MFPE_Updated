@@ -1,0 +1,11 @@
+mfpe_centre_formation_homepage:
+    path:     /
+    defaults: { _controller: MfpeCentreFormationBundle:Default:index }
+centreFormation_controller:
+    type: rest
+    resource: "@MfpeCentreFormationBundle/Controller/CentreFormationController.php"
+    prefix:   /api/centreFormation
+specialiteCentreFormation_controller:
+    type: rest
+    resource: "@MfpeCentreFormationBundle/Controller/SpecialteController.php"
+    prefix:   /api/specialite

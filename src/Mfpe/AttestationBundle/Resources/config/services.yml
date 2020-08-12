@@ -1,0 +1,15 @@
+services:
+#    mfpe_attestation.example:
+#        class: Mfpe\AttestationBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    mfpe_attestation_doc:
+        class: Mfpe\AttestationBundle\Services\DocService
+        arguments: ["@doctrine.orm.entity_manager","@templating","%file_folder%","@service_container"]
+    mfpe_user_demandes_service:
+        class: Mfpe\AttestationBundle\Services\DemandeService
+        arguments: [ '@service_container' ]
+    Mfpe\AttestationBundle\Services\MailLoggerWi:
+        arguments: ["@logger","%kernel.logs_dir%/mailer.log"]
+        tags:
+            - { name: monolog.logger, channel: mailer }
+            - { name: "swiftmailer.default.plugin" }

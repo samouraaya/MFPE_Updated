@@ -1,0 +1,15 @@
+mfpe_data_socio_economic_homepage:
+    path:     /
+    defaults: { _controller: MfpeDataSocioEconomicBundle:Default:index }
+mfpe_data_socio_economic_controller:
+    type: rest
+    resource: "@MfpeDataSocioEconomicBundle/Controller/DataSocioEconomicController.php"
+    prefix:   /api
+project_investment_controller:
+    type: rest
+    resource: "@MfpeDataSocioEconomicBundle/Controller/ProjectInvestmentController.php"
+    prefix:   /api/project_investment
+upload_csv_controller:
+    type: rest
+    resource: "@MfpeDataSocioEconomicBundle/Controller/UploadCsvController.php"
+    prefix:   /api/csv
